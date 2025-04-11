@@ -1,116 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courses - Tuition Wala</title>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
-      color: #fff;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1c1c1c, #2c2c2c);
+      color: #f5f5f5;
+      padding: 20px;
     }
     header {
-      background: #222;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 3px 8px rgba(255, 0, 0, 0.2);
-    }
-    header h1 {
-      color: gold;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-    nav a:hover {
-      color: red;
-    }
-    .courses-section {
-      padding: 60px 30px;
-    }
-    .courses-section h2 {
       text-align: center;
-      color: gold;
       margin-bottom: 40px;
     }
-    .course-list {
+    header h1 {
+      font-size: 42px;
+      color: gold;
+      text-shadow: 0 0 10px red;
+    }
+    .intro-section {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .intro-section img {
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid gold;
+      box-shadow: 0 0 20px red;
+    }
+    .intro-quote {
+      max-width: 500px;
+      font-size: 24px;
+      color: #ddd;
+      text-shadow: 0 0 5px gold;
+    }
+    .courses-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      padding: 0 10px;
     }
     .course-card {
-      background: #1c1c1c;
+      background: #2a2a2a;
       border: 2px solid red;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
       transition: transform 0.3s ease;
     }
     .course-card:hover {
-      transform: translateY(-8px);
+      transform: scale(1.05);
       border-color: gold;
     }
-    .course-card h3 {
-      color: #ffcc00;
+    .course-card h2 {
+      color: gold;
+      margin-bottom: 10px;
     }
-    .course-card p {
+    .course-card ul {
+      padding-left: 20px;
+    }
+    .course-card ul li {
+      margin-bottom: 8px;
       color: #ccc;
     }
     footer {
-      text-align: center;
+      margin-top: 60px;
       padding: 20px;
-      background: #000;
+      text-align: center;
       color: #999;
-      margin-top: 40px;
       border-top: 2px solid red;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Tuition Wala</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="courses.html">Courses</a>
-      <a href="contact.html">Contact</a>
-      <a href="profile.html">Profile</a>
-    </nav>
+    <h1>Our Courses</h1>
   </header>
 
-  <section class="courses-section">
-    <h2>Courses We Offer (1st to 10th - All CBSE Subjects)</h2>
-    <div class="course-list">
-      <div class="course-card">
-        <h3>Mathematics</h3>
-        <p>Concepts, problem-solving, and application from basics to advanced topics.</p>
-      </div>
-      <div class="course-card">
-        <h3>Science</h3>
-        <p>Physics, Chemistry, and Biology with experiments, concepts and real-life applications.</p>
-      </div>
-      <div class="course-card">
-        <h3>English</h3>
-        <p>Grammar, literature, comprehension, and writing skills for fluency and accuracy.</p>
-      </div>
-      <div class="course-card">
-        <h3>Social Science</h3>
-        <p>History, Geography, Civics, and Economics with interactive maps and timelines.</p>
-      </div>
-      <div class="course-card">
-        <h3>Hindi</h3>
-        <p>Grammar, literature and writing for better language command and performance.</p>
-      </div>
-      <div class="course-card">
-        <h3>Computer Science</h3>
-        <p>Basic computer skills, coding foundations and digital literacy.</p>
-      </div>
+  <section class="intro-section">
+    <img src="" alt="Sir Ispreet Singh Wadhawa">
+    <div class="intro-quote">
+      <q>Education is the passport to the future, for tomorrow belongs to those who prepare for it today.</q>
+      <br><br>
+      <strong>- Sir Ispreet Singh Wadhawa</strong>
+    </div>
+  </section>
+
+  <section class="courses-container">
+    <div class="course-card">
+      <h2>Classes 1st - 5th</h2>
+      <ul>
+        <li>English</li>
+        <li>Mathematics</li>
+        <li>Environmental Studies</li>
+        <li>Hindi</li>
+        <li>Computer Basics</li>
+      </ul>
+    </div>
+    <div class="course-card">
+      <h2>Classes 6th - 8th</h2>
+      <ul>
+        <li>Mathematics</li>
+        <li>Science</li>
+        <li>Social Science</li>
+        <li>English</li>
+        <li>Hindi</li>
+        <li>Computer Science</li>
+      </ul>
+    </div>
+    <div class="course-card">
+      <h2>Classes 9th - 10th</h2>
+      <ul>
+        <li>Mathematics</li>
+        <li>Science (Physics, Chemistry, Biology)</li>
+        <li>Social Science (History, Civics, Geography)</li>
+        <li>English</li>
+        <li>Hindi</li>
+        <li>Foundation for Olympiads</li>
+      </ul>
     </div>
   </section>
 
