@@ -1,238 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tuition Wala</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses - Tuition Wala</title>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #1c1c1c, #2c2c2c);
-      color: #f5f5f5;
-    }
-    nav {
       background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 3px 8px rgba(255, 0, 0, 0.2);
     }
-    nav h1 {
+    header h1 {
       color: gold;
-      font-size: 28px;
-      text-shadow: 0 0 10px red;
     }
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-    nav ul li a {
+    nav a {
       color: #fff;
+      margin-left: 20px;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
-    nav ul li a:hover {
+    nav a:hover {
       color: red;
     }
-    .user-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: gold;
-      cursor: pointer;
+    .courses-section {
+      padding: 60px 30px;
     }
-    .user-section img {
-      border-radius: 50%;
-    }
-    .login-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .login-box {
-      background: #222;
-      padding: 30px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      color: #fff;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-    }
-    .login-box h2 {
-      color: gold;
-      margin-bottom: 20px;
+    .courses-section h2 {
       text-align: center;
-    }
-    .login-box input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
-    }
-    .login-box button {
-      width: 100%;
-      padding: 10px;
-      background: red;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .login-box button:hover {
-      background: gold;
-      color: black;
-    }
-    .hero {
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: url('https://images.unsplash.com/photo-1584697964192-a6a2e04cf7f7') no-repeat center center/cover;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 50px;
       color: gold;
-      animation: glow 2s infinite alternate;
+      margin-bottom: 40px;
     }
-    .hero p {
-      font-size: 20px;
-      color: #eee;
-      margin-top: 10px;
-    }
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px red, 0 0 20px red;
-      }
-      to {
-        text-shadow: 0 0 20px gold, 0 0 30px red;
-      }
-    }
-    .features {
-      padding: 60px 20px;
+    .course-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
+      padding: 0 10px;
     }
-    .feature-card {
-      background: #2a2a2a;
+    .course-card {
+      background: #1c1c1c;
       border: 2px solid red;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 10px;
       transition: transform 0.3s ease;
     }
-    .feature-card:hover {
+    .course-card:hover {
       transform: translateY(-8px);
       border-color: gold;
     }
-    .feature-card h3 {
-      color: gold;
-      margin-bottom: 10px;
+    .course-card h3 {
+      color: #ffcc00;
     }
-    .feature-card p {
-      color: #ddd;
-    }
-    .about-owner {
-      background: #1a1a1a;
-      padding: 60px 30px;
-      margin-top: 60px;
-    }
-    .about-owner h2 {
-      text-align: center;
-      color: gold;
-      margin-bottom: 30px;
-    }
-    .about-owner p {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      line-height: 1.6;
+    .course-card p {
       color: #ccc;
     }
     footer {
-      background: black;
-      padding: 30px 20px;
       text-align: center;
+      padding: 20px;
+      background: #000;
       color: #999;
+      margin-top: 40px;
       border-top: 2px solid red;
     }
   </style>
 </head>
 <body>
-  <nav>
+  <header>
     <h1>Tuition Wala</h1>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="user-section" onclick="document.querySelector('.login-modal').style.display='flex'">
-      <span>Guest</span>
-      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile" width="30" height="30">
-    </div>
-  </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="contact.html">Contact</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
 
-  <div class="login-modal">
-    <div class="login-box">
-      <h2>Login / Signup</h2>
-      <input type="text" placeholder="Full Name">
-      <input type="text" placeholder="Grade">
-      <input type="text" placeholder="School">
-      <input type="text" placeholder="Address">
-      <input type="text" placeholder="Pincode">
-      <input type="text" placeholder="Mobile Number">
-      <input type="email" placeholder="Email">
-      <button onclick="document.querySelector('.login-modal').style.display='none'">Submit</button>
+  <section class="courses-section">
+    <h2>Courses We Offer (1st to 10th - All CBSE Subjects)</h2>
+    <div class="course-list">
+      <div class="course-card">
+        <h3>Mathematics</h3>
+        <p>Concepts, problem-solving, and application from basics to advanced topics.</p>
+      </div>
+      <div class="course-card">
+        <h3>Science</h3>
+        <p>Physics, Chemistry, and Biology with experiments, concepts and real-life applications.</p>
+      </div>
+      <div class="course-card">
+        <h3>English</h3>
+        <p>Grammar, literature, comprehension, and writing skills for fluency and accuracy.</p>
+      </div>
+      <div class="course-card">
+        <h3>Social Science</h3>
+        <p>History, Geography, Civics, and Economics with interactive maps and timelines.</p>
+      </div>
+      <div class="course-card">
+        <h3>Hindi</h3>
+        <p>Grammar, literature and writing for better language command and performance.</p>
+      </div>
+      <div class="course-card">
+        <h3>Computer Science</h3>
+        <p>Basic computer skills, coding foundations and digital literacy.</p>
+      </div>
     </div>
-  </div>
-
-  <section class="hero">
-    <h2>Empowering Students with Excellence</h2>
-    <p>Personalized tutoring to help you succeed academically and beyond.</p>
-  </section>
-
-  <section class="features">
-    <div class="feature-card">
-      <h3>Expert Tutors</h3>
-      <p>Top-quality teachers with proven success and passion for education.</p>
-    </div>
-    <div class="feature-card">
-      <h3>1-on-1 Coaching</h3>
-      <p>Focused sessions tailored to student strengths and weaknesses.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Flexible Timings</h3>
-      <p>Morning and evening slots available to suit your schedule.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Exam Preparation</h3>
-      <p>Strategic coaching for boards, Olympiads, and entrance exams.</p>
-    </div>
-  </section>
-
-  <section id="about" class="about-owner">
-    <h2>Who We Are</h2>
-    <p>We are dedicated educators with a mission to provide quality education to every student. Our team of passionate tutors works around the clock to help children reach their highest academic potential. Our goal is not just teaching but mentoring, inspiring and shaping future leaders with strong academic foundations and values.</p>
   </section>
 
   <footer>
