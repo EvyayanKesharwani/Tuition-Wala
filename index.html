@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tuition Wala</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #1a1a1a, #000);
+      color: #f8f8f8;
+    }
+    nav {
+      background: #111;
+      padding: 18px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(255, 0, 0, 0.4);
+    }
+    nav h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: gold;
+      font-size: 28px;
+      text-shadow: 0 0 10px red;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: red;
+    }
+
+    .hero {
+      height: 95vh;
+      background: url('https://images.unsplash.com/photo-1551278478-52bdfebf0fa4') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h2 {
+      font-size: 3.2rem;
+      color: gold;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      color: #ddd;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px red; }
+      to { text-shadow: 0 0 20px gold; }
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: gold;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: red;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: #1e1e1e;
+      border-left: 5px solid red;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.03);
+      border-color: gold;
+    }
+
+    .feature-card h3 {
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #ccc;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      border-top: 2px solid red;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Tuition Wala</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Empowering Students with Excellence</h2>
+    <p>Unlock your academic potential with expert tuition and coaching.</p>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Passionate Educators</h3>
+        <p>Our tutors bring energy and care to every session to help students thrive.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Modern Learning</h3>
+        <p>Interactive classes that build understanding, not just marks.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Affordable Fees</h3>
+        <p>We believe quality education should be accessible to all students.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2 class="section-title">Courses</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Maths & Science (6th–10th)</h3>
+        <p>Foundation building with tricks, problem solving and concept clarity.</p>
+      </div>
+      <div class="feature-card">
+        <h3>English & SST</h3>
+        <p>Literature, grammar, and social science made simple and scoring.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Board Exam Prep</h3>
+        <p>Crash courses, model tests, and full syllabus revision for best results.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Phone</h3>
+        <p>+91-98765-43210</p>
+      </div>
+      <div class="feature-card">
+        <h3>Email</h3>
+        <p>tuitionwala@gmail.com</p>
+      </div>
+      <div class="feature-card">
+        <h3>Location</h3>
+        <p>Nagpur, Maharashtra</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Tuition Wala. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
