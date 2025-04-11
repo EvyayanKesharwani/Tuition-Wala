@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses - Tuition Wala</title>
+  <title>Tuition Wala</title>
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -47,50 +47,92 @@
       align-items: center;
       gap: 10px;
       color: gold;
+      cursor: pointer;
     }
     .user-section img {
-      width: 30px;
-      height: 30px;
+      border-radius: 50%;
     }
-    header {
-      text-align: center;
-      margin: 40px 0;
-    }
-    header h1 {
-      font-size: 42px;
-      color: gold;
-      text-shadow: 0 0 10px red;
-    }
-    .intro-section {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 60px;
-      flex-wrap: wrap;
+    .login-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
       justify-content: center;
-      padding: 0 20px;
+      align-items: center;
+      z-index: 1000;
     }
-    .intro-section img {
-      width: 300px;
-      height: 400px;
-      object-fit: cover;
+    .login-box {
+      background: #222;
+      padding: 30px;
       border-radius: 10px;
-      border: 3px solid gold;
-      box-shadow: 0 0 20px red;
+      width: 90%;
+      max-width: 400px;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
     }
-    .intro-quote {
-      max-width: 500px;
-      font-size: 24px;
-      color: #ddd;
-      text-shadow: 0 0 5px gold;
+    .login-box h2 {
+      color: gold;
+      margin-bottom: 20px;
+      text-align: center;
     }
-    .courses-container {
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: red;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .login-box button:hover {
+      background: gold;
+      color: black;
+    }
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://images.unsplash.com/photo-1584697964192-a6a2e04cf7f7') no-repeat center center/cover;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 50px;
+      color: gold;
+      animation: glow 2s infinite alternate;
+    }
+    .hero p {
+      font-size: 20px;
+      color: #eee;
+      margin-top: 10px;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px red, 0 0 20px red;
+      }
+      to {
+        text-shadow: 0 0 20px gold, 0 0 30px red;
+      }
+    }
+    .features {
+      padding: 60px 20px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      padding: 0 20px;
     }
-    .course-card {
+    .feature-card {
       background: #2a2a2a;
       border: 2px solid red;
       padding: 25px;
@@ -98,24 +140,37 @@
       box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
       transition: transform 0.3s ease;
     }
-    .course-card:hover {
-      transform: scale(1.05);
+    .feature-card:hover {
+      transform: translateY(-8px);
       border-color: gold;
     }
-    .course-card h2 {
+    .feature-card h3 {
       color: gold;
       margin-bottom: 10px;
     }
-    .course-card ul {
-      padding-left: 20px;
+    .feature-card p {
+      color: #ddd;
     }
-    .course-card ul li {
-      margin-bottom: 8px;
+    .about-owner {
+      background: #1a1a1a;
+      padding: 60px 30px;
+      margin-top: 60px;
+    }
+    .about-owner h2 {
+      text-align: center;
+      color: gold;
+      margin-bottom: 30px;
+    }
+    .about-owner p {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.6;
       color: #ccc;
     }
     footer {
-      margin-top: 60px;
-      padding: 20px;
+      background: black;
+      padding: 30px 20px;
       text-align: center;
       color: #999;
       border-top: 2px solid red;
@@ -126,63 +181,58 @@
   <nav>
     <h1>Tuition Wala</h1>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="user-section">
+    <div class="user-section" onclick="document.querySelector('.login-modal').style.display='flex'">
       <span>Guest</span>
-      <a href="login.html"><img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile"></a>
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile" width="30" height="30">
     </div>
   </nav>
 
-  <header>
-    <h1>Our Courses</h1>
-  </header>
+  <div class="login-modal">
+    <div class="login-box">
+      <h2>Login / Signup</h2>
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Grade">
+      <input type="text" placeholder="School">
+      <input type="text" placeholder="Address">
+      <input type="text" placeholder="Pincode">
+      <input type="text" placeholder="Mobile Number">
+      <input type="email" placeholder="Email">
+      <button onclick="document.querySelector('.login-modal').style.display='none'">Submit</button>
+    </div>
+  </div>
 
-  <section class="intro-section">
-    <img src="" alt="Sir Ispreet Singh Wadhawa">
-    <div class="intro-quote">
-      <q>Education is the passport to the future, for tomorrow belongs to those who prepare for it today.</q>
-      <br><br>
-      <strong>- Sir Ispreet Singh Wadhawa</strong>
+  <section class="hero">
+    <h2>Empowering Students with Excellence</h2>
+    <p>Personalized tutoring to help you succeed academically and beyond.</p>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <h3>Expert Tutors</h3>
+      <p>Top-quality teachers with proven success and passion for education.</p>
+    </div>
+    <div class="feature-card">
+      <h3>1-on-1 Coaching</h3>
+      <p>Focused sessions tailored to student strengths and weaknesses.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Flexible Timings</h3>
+      <p>Morning and evening slots available to suit your schedule.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Exam Preparation</h3>
+      <p>Strategic coaching for boards, Olympiads, and entrance exams.</p>
     </div>
   </section>
 
-  <section class="courses-container">
-    <div class="course-card">
-      <h2>Classes 1st - 5th</h2>
-      <ul>
-        <li>English</li>
-        <li>Mathematics</li>
-        <li>Environmental Studies</li>
-        <li>Hindi</li>
-        <li>Computer Basics</li>
-      </ul>
-    </div>
-    <div class="course-card">
-      <h2>Classes 6th - 8th</h2>
-      <ul>
-        <li>Mathematics</li>
-        <li>Science</li>
-        <li>Social Science</li>
-        <li>English</li>
-        <li>Hindi</li>
-        <li>Computer Science</li>
-      </ul>
-    </div>
-    <div class="course-card">
-      <h2>Classes 9th - 10th</h2>
-      <ul>
-        <li>Mathematics</li>
-        <li>Science (Physics, Chemistry, Biology)</li>
-        <li>Social Science (History, Civics, Geography)</li>
-        <li>English</li>
-        <li>Hindi</li>
-        <li>Foundation for Olympiads</li>
-      </ul>
-    </div>
+  <section id="about" class="about-owner">
+    <h2>Who We Are</h2>
+    <p>We are dedicated educators with a mission to provide quality education to every student. Our team of passionate tutors works around the clock to help children reach their highest academic potential. Our goal is not just teaching but mentoring, inspiring and shaping future leaders with strong academic foundations and values.</p>
   </section>
 
   <footer>
