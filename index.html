@@ -118,6 +118,27 @@
       color: #eee;
       margin-top: 10px;
     }
+    <section class="hero">
+  <img src="assets/logo.png" alt="Tuition Wala Logo" class="logo">
+  <h2>Empowering Students with Excellence</h2>
+</section>
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+/* Optional animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     @keyframes glow {
       from {
         text-shadow: 0 0 10px red, 0 0 20px red;
